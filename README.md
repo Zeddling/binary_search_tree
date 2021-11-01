@@ -1,6 +1,12 @@
 #   Binary Search Tree
 This is a project that deals with implementations of a binary tree and the following functions.
 
+### ```Delete```
+Deletes a node from the tree.<br>
+Arguments: <br>
+&emsp; 1. root -> root node of the tree <br>
+&emsp; 2. key -> an int64 representing a node in the tree <br>
+
 ### ```Print```
 Prints the entire tree. <br>
 Arguments: <br>
@@ -9,18 +15,18 @@ Arguments: <br>
 &emsp; 3. node -> Root node of the tree <br>
 &emsp; 4. ch -> a character for to represent the side of the node(s) being printed. <br>
 
-### ```Tree.Insert```
-Inserts a node into the tree
+### ```IsSameTree```
+Asserts that the provided trees are identical trees are identical<br>
 Arguments: <br>
-&emsp; 1. data -> an int64 <br>
+&emsp; 1. root1 -> root node for the first tree <br>
+&emsp; 1. root2 -> root node for the second tree <br>
 
 ### ```Node.New```
 Creates a new node and inserts the node left or right depending on the size of the data relative to the root node.<br>
 Arguments: <br>
 &emsp; 1. data -> an int64 <br>
 
-### ```IsSameTree```
-Asserts that the provided trees are identical trees are identical<br>
+### ```Tree.Insert```
+Inserts a node into the tree
 Arguments: <br>
-&emsp; 1. root1 -> root node for the first tree <br>
-&emsp; 1. root2 -> root node for the second tree <br>
+&emsp; 1. data -> an int64 <br>
