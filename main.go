@@ -96,6 +96,50 @@ func (n *BinaryNode) New(data int64) {
 }
 
 /*
+	Deletes a node
+		Case 1: Node is a leaf node
+		Case 2: Node has one child
+		Case 3: Node has both children
+
+	Params:
+		Node to be deleted
+*/
+func Delete(root *BinaryNode, key int64) *BinaryNode {
+	if root == nil {
+		return root
+	} else if key < root.data {
+		root.left = Delete(root.left, key)
+	} else if key > root.data {
+		root.right = Delete(root.right, key)
+	} else {
+		if root.left == nil && root.right == nil {
+			//	Case 1
+			root = nil
+		} else if root.left == nil {
+			//	Case 2
+			root = root.right
+		} else if root.right == nil {
+			//	Case 2
+			root = root.left
+		} else {
+			//	Case 3
+			temp := root.right
+
+			for {
+				if temp.left == nil {
+					break
+				}
+				temp = temp.left
+			}
+
+			root.data = temp.data
+			root.right = Delete(root.right, temp.data)
+		}
+	}
+	return root
+}
+
+/*
 	Creates a tree and a root node
 	Params:
 		data -> int64 number
@@ -155,4 +199,8 @@ func main() {
 		"Both trees are identical: ",
 		IsSameTree(tree.root, tree2.root),
 	)
+
+	Delete(tree.root, 12)
+	fmt.Println("After deleting a key")
+	Print(os.Stdout, 0, tree.root, 'M')
 }
